@@ -16,6 +16,7 @@ function buildPayload(formData) {
     stack: formData.get('stack'),
     skills: getSelectedSkills(),
     pitch: formData.get('pitch').trim(),
+    submittedAt: new Date().toISOString(),
   };
 }
 
@@ -25,22 +26,7 @@ function validate(payload) {
   return '';
 }
 
-async function submitApplication(payload) {
-  const response = await fetch('/api/applications', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
-  });
-
-  const body = await response.json();
-  if (!response.ok) {
-    throw new Error(body.error || 'Failed to submit application.');
-  }
-
-  return body;
-}
-
-form.addEventListener('submit', async (event) => {
+form.addEventListener('submit', (event) => {
   event.preventDefault();
 
   if (!form.reportValidity()) {
@@ -57,16 +43,10 @@ form.addEventListener('submit', async (event) => {
     return;
   }
 
-  try {
-    const result = await submitApplication(payload);
-    preview.textContent = JSON.stringify({ ...payload, applicationId: result.applicationId }, null, 2);
-    previewSection.hidden = false;
-    message.textContent = `Application submitted successfully. ID: ${result.applicationId}`;
-    message.className = 'message success';
-  } catch (err) {
-    message.textContent = err.message;
-    message.className = 'message error';
-  }
+  preview.textContent = JSON.stringify(payload, null, 2);
+  previewSection.hidden = false;
+  message.textContent = 'Application submitted successfully (demo mode).';
+  message.className = 'message success';
 });
 
 resetBtn.addEventListener('click', () => {

@@ -125,12 +125,6 @@ const server = http.createServer(async (req, res) => {
     }
   }
 
-
-  if (req.method === 'GET' && url.pathname === '/health') {
-    sendJson(res, 200, { status: 'ok' });
-    return;
-  }
-
   if (req.method === 'GET' && url.pathname === '/api/applications') {
     sendJson(res, 200, { count: applications.length, applications });
     return;
