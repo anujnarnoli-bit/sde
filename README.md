@@ -1,5 +1,6 @@
 # SDE Role Application App
 
+A lightweight app for collecting candidate applications for a Software Development Engineer role.
 A lightweight frontend app for collecting candidate applications for a Software Development Engineer role.
 
 ## Features
