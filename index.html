@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SDE Role Application</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Software Development Engineer Application</h1>
+        <p>Apply for the SDE role by filling out the form below.</p>
+      </header>
+
+      <section class="card">
+        <form id="applicationForm" novalidate>
+          <div class="grid">
+            <label>
+              Full Name
+              <input type="text" id="fullName" name="fullName" required minlength="2" />
+            </label>
+
+            <label>
+              Email
+              <input type="email" id="email" name="email" required />
+            </label>
+
+            <label>
+              Years of Experience
+              <input type="number" id="experience" name="experience" min="0" max="40" required />
+            </label>
+
+            <label>
+              Preferred Stack
+              <select id="stack" name="stack" required>
+                <option value="">Select one</option>
+                <option>Backend (Java/Spring)</option>
+                <option>Backend (Node.js)</option>
+                <option>Frontend (React)</option>
+                <option>Full Stack</option>
+                <option>Mobile</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            Why should we hire you?
+            <textarea id="pitch" name="pitch" rows="5" minlength="40" required></textarea>
+          </label>
+
+          <fieldset>
+            <legend>Skills</legend>
+            <label><input type="checkbox" name="skills" value="Data Structures" /> Data Structures</label>
+            <label><input type="checkbox" name="skills" value="System Design" /> System Design</label>
+            <label><input type="checkbox" name="skills" value="APIs" /> APIs</label>
+            <label><input type="checkbox" name="skills" value="Cloud" /> Cloud</label>
+            <label><input type="checkbox" name="skills" value="Testing" /> Testing</label>
+          </fieldset>
+
+          <div class="actions">
+            <button type="submit">Submit Application</button>
+            <button type="button" id="resetBtn" class="secondary">Reset</button>
+          </div>
+
+          <p id="formMessage" class="message" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="card" id="previewSection" hidden>
+        <h2>Application Preview</h2>
+        <pre id="preview"></pre>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

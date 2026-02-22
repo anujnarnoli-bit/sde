@@ -1,0 +1,10 @@
+{
+  "name": "sde-role-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SDE role application app with Node.js backend",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check app.js"
+  }
+}
