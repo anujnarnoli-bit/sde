@@ -1,0 +1,147 @@
+:root {
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --text: #1f2a37;
+  --muted: #52606d;
+  --primary: #2f6feb;
+  --primary-dark: #1f5ed6;
+  --border: #dce3ed;
+  --success: #0f9d58;
+  --error: #d93025;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at top right, #eaf1ff, var(--bg));
+}
+
+.container {
+  width: min(900px, 92vw);
+  margin: 2rem auto;
+}
+
+header {
+  margin-bottom: 1rem;
+}
+
+h1 {
+  margin-bottom: 0.25rem;
+}
+
+p {
+  color: var(--muted);
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 6px 20px rgba(31, 42, 55, 0.06);
+  margin-bottom: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.8rem;
+}
+
+label,
+fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+select,
+textarea {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.6rem 0.7rem;
+  width: 100%;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary);
+  outline: 2px solid #d7e5ff;
+}
+
+fieldset {
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  padding: 0.8rem;
+}
+
+fieldset label {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0.25rem 0;
+}
+
+.actions {
+  display: flex;
+  gap: 0.6rem;
+}
+
+button {
+  border: none;
+  border-radius: 8px;
+  padding: 0.65rem 1rem;
+  cursor: pointer;
+}
+
+button[type="submit"] {
+  background: var(--primary);
+  color: #fff;
+}
+
+button[type="submit"]:hover {
+  background: var(--primary-dark);
+}
+
+.secondary {
+  background: #eef2f8;
+  color: var(--text);
+}
+
+.message {
+  min-height: 1.2rem;
+  margin-top: 0.7rem;
+  font-weight: 600;
+}
+
+.message.success {
+  color: var(--success);
+}
+
+.message.error {
+  color: var(--error);
+}
+
+pre {
+  background: #0f172a;
+  color: #d4e5ff;
+  padding: 0.8rem;
+  border-radius: 8px;
+  overflow-x: auto;
+}
